@@ -1,0 +1,6 @@
+[
+  { "id": 1, "nombre": "Camiseta", "precio": 50, "stock": 5, "categoria": "Ropa" ,"imagen": "img/cami.jpg"},
+  { "id": 2, "nombre": "Zapatos", "precio": 120, "stock": 3, "categoria": "Ropa" ,"imagen": "img/zapa.jpg"},
+  { "id": 3, "nombre": "Gorra", "precio": 30, "stock": 0, "categoria": "Accesorios" ,"imagen": "img/gorra.jpg"},
+  { "id": 4, "nombre": "Audífonos", "precio": 200, "stock": 4, "categoria": "Tecnología" ,"imagen": "img/Audífonos.jpg"}
+]

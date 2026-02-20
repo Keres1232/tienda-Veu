@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Tienda Vue Pro</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="app" :class="{ dark: modoOscuro }">
+
+  <header>
+    <h1>🛍️ Tienda Online</h1>
+    <button @click="toggleModo">Cambiar modo</button>
+  </header>
+
+  <!-- Buscador -->
+  <input v-model="busqueda" placeholder="Buscar producto...">
+
+  <!-- Estado si no hay productos -->
+  <p v-if="productosFiltrados.length === 0">
+    No se encontraron productos.
+  </p>
+
+  <!-- Lista -->
+  <div class="grid">
+    <producto-card
+      v-for="producto in productosFiltrados"
+      :key="producto.id"
+      :producto="producto"
+      @agregar="agregarAlCarrito"
+    ></producto-card>
+  </div>
+
+  <!-- Carrito -->
+  <section class="carrito">
+    <h2>🛒 Carrito</h2>
+
+    <p v-if="carrito.length === 0">
+      El carrito está vacío
+    </p>
+
+    <ul v-else>
+      <li v-for="item in carrito" :key="item.id">
+        {{ item.nombre }} - ${{ item.precio }}
+      </li>
+    </ul>
+
+    <h3>Total: ${{ total }}</h3>
+  </section>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
