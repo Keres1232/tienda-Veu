@@ -4,68 +4,129 @@
 <head>
   <meta charset="UTF-8">
   <title>Tienda Vue Pro</title>
+
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <link rel="stylesheet" href="styles.css">
+
 </head>
 
 <body>
 
   <div id="app" :class="{ dark: modoOscuro }">
 
-    <header class="main-header">
+    <!-- TOP BAR -->
+    <div class="topbar">
+      SEASON SALE: Prendas con estilo
+    </div>
 
-      <div class="logo">
-        <img src="img/TIENDA_ROPA_LOGO_BLANCO.svg" alt="Logo Tienda">
+    <!-- NAVBAR NUEVO -->
+    <header class="navbar">
+
+      <div class="nav-left">
+
+        <div class="logo">
+          <img src="/Tarea Vue/svg/TIENDA_ROPA_LOGO_BLANCO.svg">
+        </div>
+
+        <nav class="menu">
+          <a href="#">Mujer</a>
+          <a href="#">Hombre</a>
+        </nav>
+
       </div>
 
-      <div class="header-right">
+      <div class="nav-right">
 
-        <!-- Buscador -->
+        <!-- BUSCADOR -->
         <div class="input-container">
-          <input type="text" class="input" placeholder="Buscar producto..." v-model="busqueda">
+          <input class="input" placeholder="Buscar producto..." v-model="busqueda">
+
           <span class="icon">
-            <svg width="19px" height="19px" viewBox="0 0 24 24" fill="none">
-              <path d="M21 11.5C21 16.75 16.75 21 11.5 21C6.25 21 2 16.75 2 11.5C2 6.25 6.25 2 11.5 2" stroke="black"
-                stroke-width="2.5" stroke-linecap="round" />
-              <path d="M22 22L20 20" stroke="black" stroke-width="2.5" stroke-linecap="round" />
+            <svg width="19px" height="19px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <path opacity="1" d="M14 5H20" stroke="#000" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+                <path opacity="1" d="M14 8H17" stroke="#000" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+                <path d="M21 11.5C21 16.75 16.75 21 11.5 21C6.25 21 2 16.75 2 11.5C2 6.25 6.25 2 11.5 2" stroke="#000"
+                  stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path opacity="1" d="M22 22L20 20" stroke="#000" stroke-width="3.5" stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+              </g>
             </svg>
           </span>
         </div>
 
-        <button class="btn-carrito" @click="toggleCarrito">
-          🛒 {{ carrito.length }}
+        <button class="icon-btn">
+          <img src="/Tarea Vue/svg/person-svgrepo-com_blanco.svg">
+        </button>
+
+        <button class="icon-btn" @click="toggleCarrito">
+          <img src="/Tarea Vue/svg/shop-cart-svgrepo-com.svg">
         </button>
 
       </div>
 
     </header>
 
-    <!-- Estado si no hay productos -->
-    <p v-if="productosFiltrados.length === 0">
-      No se encontraron productos.
-    </p>
-
-    <!-- Lista -->
-    <div class="grid">
-      <producto-card v-for="producto in productosFiltrados" :key="producto.id" :producto="producto"
-        @agregar="agregarAlCarrito"></producto-card>
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb">
+      Inicio / Hombre / <b>Ropa hombre</b>
     </div>
 
-    <!-- Carrito -->
-    <section class="carrito" v-show="mostrarCarrito">
-      <h2>🛒 Carrito</h2>
+    <!-- CATEGORIAS -->
+    <div class="categorias">
 
-      <p v-if="carrito.length === 0">
+      <button :class="{activo: categoriaSeleccionada==='Todas'}" @click="categoriaSeleccionada='Todas'">
+        Todas
+      </button>
+
+      <button :class="{activo: categoriaSeleccionada==='Ropa'}" @click="categoriaSeleccionada='Ropa'">
+        Ropa
+      </button>
+
+      <button :class="{activo: categoriaSeleccionada==='Tecnología'}" @click="categoriaSeleccionada='Tecnología'">
+        Tecnología
+      </button>
+
+      <button :class="{activo: categoriaSeleccionada==='Zapatos'}" @click="categoriaSeleccionada='Zapatos'">
+        Zapatos
+      </button>
+
+      <button :class="{activo: categoriaSeleccionada==='Accesorios'}" @click="categoriaSeleccionada='Accesorios'">
+        Accesorios
+      </button>
+
+    </div>
+
+    <!-- GRID PRODUCTOS -->
+    <div class="grid">
+
+      <producto-card v-for="producto in productosFiltrados" :key="producto.id" :producto="producto"
+        @agregar="agregarAlCarrito">
+      </producto-card>
+
+    </div>
+
+    <!-- CARRITO LATERAL -->
+    <section class="carrito" v-show="mostrarCarrito">
+
+      <h2><img class="img" src="/Tarea Vue/svg/shop-cart-svgrepo-com_negro.svg"> Carrito</h2>
+
+      <p v-if="carrito.length===0">
         El carrito está vacío
       </p>
 
       <ul v-else>
-        <li v-for="item in carrito" :key="item.id">
+        <li v-for="item in carrito">
           {{ item.nombre }} - ${{ item.precio }}
         </li>
       </ul>
 
       <h3>Total: ${{ total }}</h3>
+
     </section>
 
   </div>

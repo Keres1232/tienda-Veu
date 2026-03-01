@@ -1,144 +1,74 @@
-body {
-  font-family: Arial, sans-serif;
-  /* margin: 20px; */
-  background: #f4f4f4;
+body{
+margin:0;
+font-family:Arial;
+background:#f4f4f4;
 }
 
-/* HEADER TIENDA */
-/* HEADER */
-.main-header {
-  background: #0d47a1;
-  color: white;
-  padding: 15px 30px;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* TOP BAR */
+.topbar{
+background:rgb(175, 100, 54);
+color:rgb(255, 255, 255);
+text-align:center;
+padding:8px;
+font-size:14px;
 }
 
-/* LOGO */
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-}
-.logo img {
-  height: 35px;
-  width: auto;
-}
-
-/* CONTENEDOR DERECHO */
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+/* NAVBAR */
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+background:rgb(0, 0, 0);
+border-bottom:1px solid #ddd;
 }
 
-/* IMPORTANTE */
+.nav-left{
+display:flex;
+align-items:center;
+gap:40px;
+}
+
+.logo img{
+height:45px;
+}
+
+.img{
+  height:45px;
+}
+
+.menu a{
+text-decoration:none;
+color:black;
+margin-right:20px;
+font-weight:500;
+}
+
+/* RIGHT SIDE */
+.nav-right{
+display:flex;
+align-items:center;
+gap:20px;
+}
+
+.icon-btn{
+border:none;
+background:none;
+font-size:20px;
+cursor:pointer;
+}
+
+.icon-btn img{
+height:30px;
+}
+
+/* ========================= */
+/* BUSCADOR */
+/* ========================= */
+
 .input-container {
-  width: 26px;
-  margin-left: 30;
-  flex-shrink: 0; /* evita que se rompa el layout */
-}
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 330px);
-  gap: 40px;
-  justify-content: center; /* Centra las cartas */
-  margin-top: 30px;
-}
-
-.card {
-  width: 330px;
-  height: 450px;
-  border-radius: 20px;
-  background-size: cover;
-  background-position: center;
+  width: 260px;
   position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: 0.4s ease;
-  cursor: pointer;
-}
-
-
-.card:hover {
-  transform: scale(1.05);
-}
-
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(0px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  opacity: 0;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  transition: 0.4s ease;
-}
-
-.card:hover .overlay {
-  opacity: 1;
-  backdrop-filter: blur(6px);
-}
-
-.overlay h3 {
-  font-size: 22px;
-  font-weight: bold;
-}
-
-.overlay p {
-  font-size: 16px;
-}
-
-button {
-  padding: 8px 14px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  background: #00c853;
-  color: white;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-button:hover {
-  background: #009624;
-}
-
-button:disabled {
-  background: gray;
-  cursor: not-allowed;
-}
-.carrito {
-  margin-top: 40px;
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.dark {
-  background: #1e1e1e;
-  color: white;
-}
-
-.agotado {
-  filter: grayscale(100%);
-  opacity: 0.7;
-}
-
-/* Barra de búsqueda personalizada */
-.input-container {
-  width: 250px;
-  position: relative;
-  margin-top: 20px;
 }
 
 .icon {
@@ -152,13 +82,10 @@ button:disabled {
   width: 100%;
   height: 40px;
   padding: 10px;
-  padding-right: 40px;
-  transition: .2s linear;
   border: 2.5px solid black;
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 2px;
-  border-radius: 8px;
 }
 
 .input:focus {
@@ -172,10 +99,125 @@ button:disabled {
 }
 
 @keyframes anim {
-  0%, 100% {
+  0%,100% {
     transform: translateY(-50%) scale(1);
   }
   50% {
     transform: translateY(-50%) scale(1.1);
   }
+}
+
+
+
+/* BREADCRUMB */
+.breadcrumb{
+padding:20px 40px;
+color:#666;
+}
+
+/* CATEGORIAS */
+
+.categorias{
+display:flex;
+gap:15px;
+padding:10px 40px;
+flex-wrap:wrap;
+}
+
+.categorias button{
+background:white;
+border:2px solid black;
+color:black;
+padding:8px 18px;
+border-radius:20px;
+cursor:pointer;
+transition:.3s;
+}
+
+.categorias button:hover{
+background:black;
+color:white;
+}
+
+.categorias .activo{
+background:black;
+color:white;
+}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+gap:25px;
+padding:20px 40px;
+}
+
+/* CARD PRODUCTO */
+.card{
+height:450px;
+border-radius:20px;
+background-size:cover;
+background-position:center;
+position:relative;
+overflow:hidden;
+transition:.4s;
+cursor:pointer;
+}
+
+.card:hover{
+transform:scale(1.04);
+}
+
+.overlay{
+position:absolute;
+inset:0;
+background:rgba(0,0,0,.6);
+color:white;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+opacity:0;
+transition:.4s;
+}
+
+.card:hover .overlay{
+opacity:1;
+}
+
+/* BOTONES */
+button{
+padding:8px 14px;
+border:none;
+border-radius:8px;
+background:rgb(175, 100, 54);
+color:white;
+cursor:pointer;
+}
+
+button:disabled{
+background:gray;
+}
+
+/* CARRITO LATERAL */
+.carrito{
+position:fixed;
+top:80px;
+right:20px;
+width:260px;
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+
+/* DARK MODE */
+.dark{
+background:#1e1e1e;
+color:white;
+}
+
+.agotado{
+filter:grayscale(100%);
+opacity:.6;
 }

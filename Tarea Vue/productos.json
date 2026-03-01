@@ -1,6 +1,23 @@
 [
-  { "id": 1, "nombre": "Camiseta", "precio": 50, "stock": 5, "categoria": "Ropa" ,"imagen": "img/cami.jpg"},
-  { "id": 2, "nombre": "Zapatos", "precio": 120, "stock": 3, "categoria": "Ropa" ,"imagen": "img/zapa.jpg"},
-  { "id": 3, "nombre": "Gorra", "precio": 30, "stock": 0, "categoria": "Accesorios" ,"imagen": "img/gorra.jpg"},
-  { "id": 4, "nombre": "Audífonos", "precio": 200, "stock": 4, "categoria": "Tecnología" ,"imagen": "img/Audífonos.jpg"}
+{ "id":1, "nombre":"Camiseta Básica", "precio":50, "stock":5, "categoria":"Ropa","imagen":"img/01_CM0001_UNI_WORDPRESS.jpg"},
+{ "id":2, "nombre":"Chaqueta Denim", "precio":150, "stock":3, "categoria":"Ropa","imagen":"img/chaquetas-para-hombre-44080269-51_5.jpg"},
+{ "id":3, "nombre":"Hoodie Negra", "precio":120, "stock":6, "categoria":"Ropa","imagen":"img/black-hoodie-mockup-front-view-260nw-2625742403.webp"},
+{ "id":4, "nombre":"Camisa Formal", "precio":95, "stock":4, "categoria":"Ropa","imagen":"img/61owdlDd7wL._AC_SL400_.jpg"},
+
+{ "id":5, "nombre":"Audífonos Gamer", "precio":200, "stock":4, "categoria":"Tecnología","imagen":"img/Audífonos.jpg"},
+{ "id":6, "nombre":"Smartwatch", "precio":350, "stock":2, "categoria":"Tecnología","imagen":"img/Smartwatch.jpg"},
+{ "id":7, "nombre":"Mouse RGB", "precio":80, "stock":8, "categoria":"Tecnología","imagen":"img/mouse.jpg"},
+{ "id":8, "nombre":"Teclado Mecánico", "precio":220, "stock":3, "categoria":"Tecnología","imagen":"img/teclado.jpg"},
+
+{ "id":9, "nombre":"Sneakers Urbanos", "precio":180, "stock":5, "categoria":"Zapatos","imagen":"img/Sneakers_Urbanos.jpg"},
+{ "id":10, "nombre":"Botas Cuero", "precio":260, "stock":2, "categoria":"Zapatos","imagen":"img/botas-cuero.jpg"},
+{ "id":11, "nombre":"Zapatos", "precio":210, "stock":7, "categoria":"Zapatos","imagen":"img/zapa.jpg"},
+{ "id":12, "nombre":"Tenis Blancos", "precio":170, "stock":5, "categoria":"Zapatos","imagen":"img/zapatosblancos.jpg"},
+
+{ "id":13, "nombre":"Gorra Negra", "precio":35, "stock":10, "categoria":"Accesorios","imagen":"img/gorra.jpg"},
+{ "id":14, "nombre":"Mochila Urbana", "precio":140, "stock":4, "categoria":"Accesorios","imagen":"img/mochila.jpg"},
+{ "id":15, "nombre":"Gafas de Sol", "precio":90, "stock":6, "categoria":"Accesorios","imagen":"img/gafas.jpg"},
+{ "id":16, "nombre":"Cinturón Cuero", "precio":60, "stock":8, "categoria":"Accesorios","imagen":"img/correa.jpg"},
+{ "id":17, "nombre":"Reloj Casual", "precio":180, "stock":3, "categoria":"Accesorios","imagen":"img/relog.jpg"}
 ]
+

@@ -2,13 +2,19 @@ const { createApp } = Vue;
 
 createApp({
 
+  /* =========================
+        DATA
+  ==========================*/
   data() {
     return {
       productos: [],
       carrito: [],
       busqueda: "",
       modoOscuro: false,
-      mostrarCarrito: false   // ✅ nuevo estado carrito
+      mostrarCarrito: false,
+
+      // ⭐ IMPORTANTE
+      categoriaSeleccionada: "Todas"
     }
   },
 
@@ -18,10 +24,21 @@ createApp({
   computed: {
 
     productosFiltrados() {
-      return this.productos.filter(p =>
-        p.nombre.toLowerCase()
-        .includes(this.busqueda.toLowerCase())
-      );
+
+      return this.productos.filter(p => {
+
+        // filtro búsqueda
+        const coincideBusqueda =
+          p.nombre.toLowerCase()
+          .includes(this.busqueda.toLowerCase());
+
+        // filtro categoría
+        const coincideCategoria =
+          this.categoriaSeleccionada === "Todas" ||
+          p.categoria === this.categoriaSeleccionada;
+
+        return coincideBusqueda && coincideCategoria;
+      });
     },
 
     total() {
@@ -39,22 +56,36 @@ createApp({
   methods: {
 
     async cargarProductos() {
-      const response = await fetch("productos.json");
-      this.productos = await response.json();
+      try {
+        const response = await fetch("productos.json");
+
+        if (!response.ok)
+          throw new Error("No se pudo cargar productos.json");
+
+        this.productos = await response.json();
+
+        console.log("Productos cargados:", this.productos);
+
+      } catch (error) {
+        console.error(error);
+      }
     },
 
     agregarAlCarrito(producto) {
-      if (producto.stock > 0) {
-        this.carrito.push(producto);
-        producto.stock--;
-      }
+
+      if (producto.stock <= 0) return;
+
+      this.carrito.push({
+        ...producto
+      });
+
+      producto.stock--;
     },
 
     toggleModo() {
       this.modoOscuro = !this.modoOscuro;
     },
 
-    // ✅ abrir / cerrar carrito
     toggleCarrito() {
       this.mostrarCarrito = !this.mostrarCarrito;
     }
@@ -62,14 +93,14 @@ createApp({
   },
 
   /* =========================
-        CICLO DE VIDA
+        MOUNTED
   ==========================*/
   mounted() {
     this.cargarProductos();
   },
 
   /* =========================
-        COMPONENTES
+        COMPONENTE CARD
   ==========================*/
   components: {
 
@@ -80,22 +111,16 @@ createApp({
         <div 
           class="card"
           :class="{ agotado: producto.stock === 0 }"
-          :style="{ backgroundImage: 'url(' + producto.imagen + ')' }"
+          :style="{ backgroundImage:'url(' + producto.imagen + ')' }"
         >
 
           <div class="overlay">
 
-            <p class="text head">
-              {{ producto.nombre }}
-            </p>
+            <h3>{{ producto.nombre }}</h3>
 
-            <span>
-              {{ producto.categoria }}
-            </span>
+            <p>{{ producto.categoria }}</p>
 
-            <p class="text price">
-              $ {{ producto.precio }}
-            </p>
+            <p>$ {{ producto.precio }}</p>
 
             <p v-if="producto.stock > 0">
               Stock: {{ producto.stock }}
