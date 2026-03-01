@@ -1,71 +1,76 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <title>Tienda Vue Pro</title>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-<div id="app" :class="{ dark: modoOscuro }">
+  <div id="app" :class="{ dark: modoOscuro }">
 
-  <header>
-    <h1>🛍️ Tienda Online</h1>
-    <button @click="toggleModo">Cambiar modo</button>
-  </header>
+    <header class="main-header">
 
-  <!-- Buscador -->
-  <div class="input-container">
-  <input 
-    type="text"
-    class="input"
-    placeholder="Buscar producto..."
-    v-model="busqueda"
-  >
-  <span class="icon"> 
-    <svg width="19px" height="19px" viewBox="0 0 24 24" fill="none">
-      <path d="M21 11.5C21 16.75 16.75 21 11.5 21C6.25 21 2 16.75 2 11.5C2 6.25 6.25 2 11.5 2" 
-        stroke="black" stroke-width="2.5" stroke-linecap="round"/>
-      <path d="M22 22L20 20" 
-        stroke="black" stroke-width="3.5" stroke-linecap="round"/>
-    </svg>
-  </span>
-</div>
-  <!-- Estado si no hay productos -->
-  <p v-if="productosFiltrados.length === 0">
-    No se encontraron productos.
-  </p>
+      <div class="logo">
+        <img src="img/TIENDA_ROPA_LOGO_BLANCO.svg" alt="Logo Tienda">
+      </div>
 
-  <!-- Lista -->
-  <div class="grid">
-    <producto-card
-      v-for="producto in productosFiltrados"
-      :key="producto.id"
-      :producto="producto"
-      @agregar="agregarAlCarrito"
-    ></producto-card>
-  </div>
+      <div class="header-right">
 
-  <!-- Carrito -->
-  <section class="carrito">
-    <h2>🛒 Carrito</h2>
+        <!-- Buscador -->
+        <div class="input-container">
+          <input type="text" class="input" placeholder="Buscar producto..." v-model="busqueda">
+          <span class="icon">
+            <svg width="19px" height="19px" viewBox="0 0 24 24" fill="none">
+              <path d="M21 11.5C21 16.75 16.75 21 11.5 21C6.25 21 2 16.75 2 11.5C2 6.25 6.25 2 11.5 2" stroke="black"
+                stroke-width="2.5" stroke-linecap="round" />
+              <path d="M22 22L20 20" stroke="black" stroke-width="2.5" stroke-linecap="round" />
+            </svg>
+          </span>
+        </div>
 
-    <p v-if="carrito.length === 0">
-      El carrito está vacío
+        <button class="btn-carrito" @click="toggleCarrito">
+          🛒 {{ carrito.length }}
+        </button>
+
+      </div>
+
+    </header>
+
+    <!-- Estado si no hay productos -->
+    <p v-if="productosFiltrados.length === 0">
+      No se encontraron productos.
     </p>
 
-    <ul v-else>
-      <li v-for="item in carrito" :key="item.id">
-        {{ item.nombre }} - ${{ item.precio }}
-      </li>
-    </ul>
+    <!-- Lista -->
+    <div class="grid">
+      <producto-card v-for="producto in productosFiltrados" :key="producto.id" :producto="producto"
+        @agregar="agregarAlCarrito"></producto-card>
+    </div>
 
-    <h3>Total: ${{ total }}</h3>
-  </section>
+    <!-- Carrito -->
+    <section class="carrito" v-show="mostrarCarrito">
+      <h2>🛒 Carrito</h2>
 
-</div>
+      <p v-if="carrito.length === 0">
+        El carrito está vacío
+      </p>
 
-<script src="app.js"></script>
+      <ul v-else>
+        <li v-for="item in carrito" :key="item.id">
+          {{ item.nombre }} - ${{ item.precio }}
+        </li>
+      </ul>
+
+      <h3>Total: ${{ total }}</h3>
+    </section>
+
+  </div>
+
+  <script src="app.js"></script>
 </body>
+
 </html>

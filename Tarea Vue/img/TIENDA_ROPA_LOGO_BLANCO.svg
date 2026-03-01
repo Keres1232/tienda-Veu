@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 1586 879" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g transform="matrix(1,0,0,1,-1877.768504,-806.819969)">
+        <g transform="matrix(0.952553,0,0,1,90.352362,-33.565457)">
+            <path d="M1904.285,1687.255L2480.315,1687.255" style="fill:none;stroke:white;stroke-width:38.4px;"/>
+        </g>
+        <g transform="matrix(0.952553,0,0,1,1073.739743,-33.565457)">
+            <path d="M1904.285,1687.255L2480.315,1687.255" style="fill:none;stroke:white;stroke-width:38.4px;"/>
+        </g>
+        <path d="M2565.284,1198.559C2385.864,1290.892 2206.391,1383.252 2029.771,1480.835C2027.91,1481.863 2032.987,1483.052 2027.767,1507.345C2015.459,1564.616 1950.85,1591.215 1904.285,1531.256" style="fill:none;stroke:white;stroke-width:37.5px;"/>
+        <g transform="matrix(-1.041238,0,0,0.975312,5419.184808,38.651224)">
+            <path d="M2513.049,987.221C2485.679,920.037 2534.37,813.759 2649.023,814.809C2791.401,816.113 2824.294,992.637 2734.272,1064.642C2629.823,1148.186 1991.905,1503.205 2029.771,1480.835C2033.914,1555.766 1957.875,1600.261 1904.285,1531.256" style="fill:none;stroke:white;stroke-width:37.17px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,-151.279811,130.574454)">
+            <g transform="matrix(200,0,0,200,3336.588458,1461.050492)">
+            </g>
+            <text x="2303.19px" y="1461.05px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:200px;fill:white;stroke:white;stroke-width:1px;stroke-linecap:butt;stroke-miterlimit:2;">CLOTHING</text>
+        </g>
+        <g transform="matrix(1,0,0,1,221.734512,222.485064)">
+            <g transform="matrix(83.333333,0,0,83.333333,2588.753171,1461.050492)">
+            </g>
+            <text x="2303.19px" y="1461.05px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:83.333px;fill:white;stroke:white;stroke-width:1px;stroke-linecap:butt;stroke-miterlimit:2;">ST<tspan x="2408.17px 2472.99px " y="1461.05px 1461.05px ">OR</tspan>E</text>
+        </g>
+    </g>
+</svg>

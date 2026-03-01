@@ -1,0 +1,38 @@
+.header {
+  display: flex;
+  justify-content: space-between; /* separa izquierda y derecha */
+  align-items: center;
+  padding: 15px 30px;
+  background: rgb(0, 0, 0);
+}
+
+/* Logo */
+.logo {
+  height: 35px;
+  width: auto;
+}
+
+/* Contenedor derecho */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* espacio entre botón y buscador */
+}
+
+/* Botón */
+.btn-action {
+  padding: 10px 15px;
+  background: rgb(211, 30, 30);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Buscador */
+.search-bar input {
+  padding: 10px;
+  width: 250px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}

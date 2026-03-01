@@ -1,15 +1,44 @@
 body {
   font-family: Arial, sans-serif;
-  margin: 20px;
+  /* margin: 20px; */
   background: #f4f4f4;
 }
 
-header {
+/* HEADER TIENDA */
+/* HEADER */
+.main-header {
+  background: #0d47a1;
+  color: white;
+  padding: 15px 30px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+/* LOGO */
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+.logo img {
+  height: 35px;
+  width: auto;
+}
+
+/* CONTENEDOR DERECHO */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* IMPORTANTE */
+.input-container {
+  width: 26px;
+  margin-left: 30;
+  flex-shrink: 0; /* evita que se rompa el layout */
+}
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, 330px);
